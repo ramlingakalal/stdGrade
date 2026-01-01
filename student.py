@@ -15,9 +15,8 @@ def calculate_grade(avg):
         return "F"
 
 def main():
-    # Correct usage check
     if len(sys.argv) < 7:
-        print("Usage: python Student.py <name> <department> <semester> <m1> <m2> <m3>")
+        print("Usage: python student.py <name> <department> <semester> <m1> <m2> <m3>")
         sys.exit(1)
 
     name = sys.argv[1]
@@ -26,15 +25,9 @@ def main():
     department = " ".join(sys.argv[2:-4])
 
     semester = sys.argv[-4]
-
-    # Safely convert marks to integers
-    try:
-        marks1 = int(sys.argv[-3])
-        marks2 = int(sys.argv[-2])
-        marks3 = int(sys.argv[-1])
-    except ValueError:
-        print("Marks must be integers")
-        sys.exit(1)
+    marks1 = int(sys.argv[-3])
+    marks2 = int(sys.argv[-2])
+    marks3 = int(sys.argv[-1])
 
     average = (marks1 + marks2 + marks3) / 3
     grade = calculate_grade(average)
