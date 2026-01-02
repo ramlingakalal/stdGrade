@@ -1,4 +1,8 @@
 FROM python:3.14
+
 WORKDIR /Grade
+
 COPY . .
-CMD ["python", "student.py"]
+
+# Set student.py as the default command
+ENTRYPOINT ["python", "student.py"]
