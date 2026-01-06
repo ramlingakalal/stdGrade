@@ -4,5 +4,11 @@ WORKDIR /Grade
 
 COPY . .
 
-# Set student.py as the default command
-ENTRYPOINT ["python", "student.py"]
+# Install pytest
+RUN pip install --no-cache-dir pytest
+
+# Run tests (CI step)
+RUN pytest
+
+# Run application
+CMD ["python", "student.py"]
